@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  suricata:
+    image: mesesale/suricata-docker:rpi
+    build: 
+      context: ./rpi-alpine/
+      dockerfile: Dockerfile
+    container_name: suricata
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    network_mode: "host"
+    volumes:
+      - ./rules:/etc/suricata/rules
+    entrypoint: /tmp/docker-entrypoint.sh
