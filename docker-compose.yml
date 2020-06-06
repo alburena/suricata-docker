@@ -1,7 +1,6 @@
 version: '2'
 
 services:
-
   suricata:
     image: mesesale/suricata-docker:rpi
     build: 
